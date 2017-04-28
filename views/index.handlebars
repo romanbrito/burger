@@ -7,62 +7,55 @@
         <p>Eat-Da-Burger!</p>
     </div>
 
-    <!--<form class="form-grp clearfix colelem" id="widgetu118" method="POST" enctype="multipart/form-data" action="/">&lt;!&ndash; none box &ndash;&gt;-->
-        <!--&lt;!&ndash;<div class="clearfix grpelem" id="u128-4">&lt;!&ndash; content &ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;<p>Submitting Form...</p>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div class="clearfix grpelem" id="u134-4">&lt;!&ndash; content &ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;<p>The server encountered an error.</p>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div class="clearfix grpelem" id="u123-4">&lt;!&ndash; content &ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;<p>Enter a burger you want to eat Click the&nbsp; &quot;Submit&quot; button.</p>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--<button class="submit-btn NoWrap rounded-corners clearfix grpelem" id="u133-4" type="submit">&lt;!&ndash; content &ndash;&gt;-->
-            <!--<div style="margin-top:-11px;height:11px;">-->
-                <!--<p>Submit</p>-->
-            <!--</div>-->
-        <!--</button>-->
-        <!--<div class="fld-grp clearfix grpelem" id="widgetu129" data-required="false">&lt;!&ndash; none box &ndash;&gt;-->
-            <!--<label class="fld-label actAsDiv clearfix grpelem" id="u131-4" for="widgetu129_input">&lt;!&ndash; content &ndash;&gt;-->
-                <!--<span-->
-                        <!--class="actAsPara">Enter a burger you want to eat Click the "Submit" button</span></label>-->
-            <!--<span class="fld-textarea actAsDiv clearfix grpelem" id="u130-4">-->
-                <!--<input type="text" class="wrapped-input" id="widgetu129_input" name="burger_name" tabindex="1">-->
-            <!--</span>-->
-        <!--</div>-->
-    <!--</form>-->
 
-    <form action="/" method="POST">
+    <form action="/" method="post" id="widgetu118" class="form-grp clearfix colelem">
+        <label for="widgetu129_input">
+            <span class="actAsPara">Enter a burger you want to eat Click the "Submit" button</span>
+        </label>
+        <span class="fld-textarea actAsDiv clearfix grpelem" id="u130-4">
+            <input type="text" class="wrapped-input" name="burger_name" id="widgetu129_input">
+        </span>
 
-        <div class="clearfix grpelem">
-            <label for="ca">Add Burger:</label>
-            <span class="fld-textarea actAsDiv clearfix grpelem" id="u130-4">
-            <input type="text" id="ca" name="burger_name">
-            </span>
-        </div>
-
-
-        <button type="submit">Add burger</button>
+        <button type="submit" class="submit-btn NoWrap rounded-corners clearfix grpelem" id="u133-4">Submit</button>
     </form>
 
 
-
-
     <div class="verticalspacer" data-offset-top="380" data-content-above-spacer="380"
-         data-content-below-spacer="120"></div>
+         data-content-below-spacer="120">
     <!--all !devoured burgers-->
+    <div id="u228">
     <ul>
         {{#each burgers}}
             {{#unless this.devoured}}
                 <li>
+                    {{this.id}}
                     {{this.burger_name}}
+                    {{this.devoured}}
 
                     <form action="/{{this.id}}?_method=PUT" method="POST">
-                        <input type="hidden" name="devoured" value="false">
+                        <input type="hidden" name="devoured" value="true">
                         <button class="button" type="submit">Devour it!</button>
                     </form>
+
                 </li>
             {{/unless}}
         {{/each}}
     </ul>
+    </div>
+    <div id="u266">
+        <ul>
+            {{#each burgers}}
+            {{#if this.devoured}}
+                <li>
+                    {{this.id}}
+                    {{this.burger_name}}
+                    {{this.devoured}}
+
+                </li>
+            {{/if}}
+            {{/each}}
+        </ul>
+
+    </div>
+    </div>
 </div>

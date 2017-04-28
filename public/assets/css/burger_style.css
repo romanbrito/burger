@@ -110,6 +110,7 @@ textarea {
 
 span.actAsPara, .actAsDiv, img.block {
     display: block;
+    font-family: Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
 }
 
 span.actAsPara {
@@ -271,7 +272,7 @@ p, span.actAsPara {
 
 #u133-4 {
     margin-top: 115px;
-    padding: 7px 0px 0px;
+    padding: 7px 0px 7px;
 }
 
 li {
@@ -280,12 +281,9 @@ li {
 .button:hover, #u133-4:hover {
     border-color: #6B6B6B;
     background-color: #F2F2F2;
-    /*padding-top: 7px;*/
-    padding-bottom: 0px;
     min-height: 0px;
     width: 129px;
     height: 22px;
-    /*margin: 115px -10000px 0px 0px;*/
 }
 
 #u133-4:active {
@@ -385,4 +383,28 @@ li {
 body {
     position: relative;
     min-width: 320px;
+}
+
+#u228,#u266{
+    background-color:transparent;
+    position:relative;
+    height: 0px;
+}
+
+#u228 {
+    width:35%;
+    top: 14px;
+}
+
+#u266{
+    z-index: 37;
+    border-width: 0px;
+    border-color: transparent;
+    background-color: transparent;
+    position: relative;
+    margin-right: -10000px;
+    width: 18.75%;
+    left: 68.96%;
+    width: 35%;
+
 }
