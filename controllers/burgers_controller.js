@@ -11,14 +11,11 @@ router.get("/", function (req, res) {
         var hbsObject = {
             burgers: data
         };
-        console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
 
 router.post("/", function (req, res) {
-    console.log(req.body.burger_name);
-
     burger.create([
         "burger_name"
     ], [
